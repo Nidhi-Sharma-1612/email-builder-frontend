@@ -8,6 +8,7 @@ import { parseStyleString, parseStyleStringToObject } from "./helpers";
 
 const PreviewPanel = () => {
   const settings = useSelector((state) => state.email);
+  const image = useSelector((state) => state.email.image);
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -125,6 +126,7 @@ const PreviewPanel = () => {
             style={safeStyle("image")}
           />
         )}
+
         {settings.ctaText && settings.ctaUrl && (
           <div style={safeStyle("ctaContainer")}>
             <a href={settings.ctaUrl} style={safeStyle("ctaButton")}>

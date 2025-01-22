@@ -26,7 +26,6 @@ const emailSlice = createSlice({
     updateSettings(state, action) {
       return { ...state, ...action.payload };
     },
-
     updateStyle(state, action) {
       const { field, style, value } = action.payload;
 

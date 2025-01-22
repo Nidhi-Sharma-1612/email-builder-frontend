@@ -3,8 +3,6 @@ import axios from "axios";
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api/emails";
 
-console.log("API Base URL:", API_BASE_URL);
-
 // Fetch the email layout and styles
 export const fetchEmailLayout = () => async () => {
   try {
