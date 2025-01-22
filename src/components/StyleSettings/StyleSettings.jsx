@@ -17,6 +17,7 @@ const defaultStyles = {
   fontSize: "16px",
   fontWeight: "normal",
   fontStyle: "normal",
+  textAlign: "center",
 };
 
 const StyleSettings = ({ styles, handleStyleChange }) => {
@@ -24,10 +25,9 @@ const StyleSettings = ({ styles, handleStyleChange }) => {
     Object.keys(allowedFields).includes(field)
   );
 
-  // State to manage toggle for each section, with "Header" open by default
   const [openSections, setOpenSections] = useState(
     filteredStyles.reduce((acc, field) => {
-      acc[field] = field === "emailHeader"; // Open only the "Header" section by default
+      acc[field] = field === "emailHeader"; // Open "Header" by default
       return acc;
     }, {})
   );
@@ -63,52 +63,34 @@ const StyleSettings = ({ styles, handleStyleChange }) => {
             <div className="grid grid-cols-2 gap-5">
               {field === "image" ? (
                 <>
-                  {/* Width and Alignment */}
+                  {/* Width */}
                   <div className="col-span-2 grid grid-cols-2 gap-4">
                     <div>
                       <label
                         className="block text-sm font-medium text-gray-800 mb-2"
                         htmlFor={`${field}-width`}
                       >
-                        Width (px)
+                        Width (%)
                       </label>
                       <input
                         type="number"
+                        min={20}
+                        max={100}
                         id={`${field}-width`}
                         value={
-                          styles[field]?.width
+                          styles[field]?.width?.endsWith("%")
                             ? parseInt(styles[field].width, 10)
-                            : 100 // Default value
+                            : 100 // Default %
                         }
                         onChange={(e) =>
                           handleStyleChange(
                             field,
                             "width",
-                            `${e.target.value}px`
+                            `${e.target.value}%`
                           )
                         }
                         className="w-full border border-gray-300 rounded-md p-1"
                       />
-                    </div>
-                    <div>
-                      <label
-                        className="block text-sm font-medium text-gray-800 mb-2"
-                        htmlFor={`${field}-textAlign`}
-                      >
-                        Alignment
-                      </label>
-                      <select
-                        id={`${field}-textAlign`}
-                        value={styles[field]?.textAlign || "center"}
-                        onChange={(e) =>
-                          handleStyleChange(field, "textAlign", e.target.value)
-                        }
-                        className="w-full border border-gray-300 rounded-md p-1"
-                      >
-                        <option value="left">Left</option>
-                        <option value="center">Center</option>
-                        <option value="right">Right</option>
-                      </select>
                     </div>
                   </div>
                 </>
@@ -129,7 +111,7 @@ const StyleSettings = ({ styles, handleStyleChange }) => {
                         value={
                           styles[field]?.fontSize?.endsWith("rem")
                             ? convertRemToPx(styles[field].fontSize)
-                            : parseInt(styles[field]?.fontSize, 10) || 16 // Default from layout or fallback
+                            : parseInt(styles[field]?.fontSize, 10) || 16
                         }
                         onChange={(e) =>
                           handleStyleChange(
@@ -150,7 +132,7 @@ const StyleSettings = ({ styles, handleStyleChange }) => {
                       </label>
                       <select
                         id={`${field}-textAlign`}
-                        value={styles[field]?.textAlign || "left"} // Default alignment
+                        value={styles[field]?.textAlign || "left"}
                         onChange={(e) =>
                           handleStyleChange(field, "textAlign", e.target.value)
                         }

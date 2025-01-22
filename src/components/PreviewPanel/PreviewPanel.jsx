@@ -129,7 +129,12 @@ const PreviewPanel = () => {
 
         {settings.ctaText && settings.ctaUrl && (
           <div style={safeStyle("ctaContainer")}>
-            <a href={settings.ctaUrl} style={safeStyle("ctaButton")}>
+            <a
+              href={settings.ctaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={safeStyle("ctaButton")}
+            >
               {settings.ctaText}
             </a>
           </div>
@@ -142,6 +147,8 @@ const PreviewPanel = () => {
             <a
               href={settings.unsubscribeUrl}
               style={safeStyle("unsubscribeLink")}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Unsubscribe
             </a>
