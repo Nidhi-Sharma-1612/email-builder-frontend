@@ -1,0 +1,86 @@
+export const defaultStyles = {
+  loaderContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "50%",
+    minHeight: "100px",
+    backgroundColor: "#f9fafb",
+  },
+  loaderText: {
+    color: "#6b7280",
+  },
+  emailContainer: {
+    maxWidth: "600px",
+    margin: "40px auto",
+    backgroundColor: "#ffffff",
+    border: "1px solid #dddddd",
+    borderRadius: "8px",
+    overflow: "hidden",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  },
+  emailHeader: {
+    backgroundColor: "#007bff",
+    color: "#ffffff",
+    padding: "20px",
+    textAlign: "center",
+    fontSize: "1.8rem",
+    fontWeight: "bold",
+  },
+  emailSubheader: {
+    textAlign: "center",
+    fontSize: "1.2rem",
+    color: "#555555",
+    margin: "15px 20px",
+    fontStyle: "italic",
+  },
+  emailBody: {
+    padding: "20px",
+    lineHeight: "1.8",
+    fontSize: "1rem",
+    color: "#444444",
+  },
+  bodyContent: {
+    marginBottom: "20px",
+  },
+  imageContainer: {
+    margin: "20px 0",
+  },
+  image: {
+    maxWidth: "100%",
+    height: "auto",
+    borderRadius: "8px",
+    display: "block",
+  },
+  ctaContainer: {
+    textAlign: "center",
+    margin: "20px 0",
+  },
+  ctaButton: {
+    display: "inline-block",
+    padding: "12px 20px",
+    backgroundColor: "#007bff",
+    color: "#ffffff",
+    textDecoration: "none",
+    borderRadius: "8px",
+    fontWeight: "bold",
+    fontSize: "1rem",
+    transition: "background-color 0.3s ease",
+  },
+  emailFooter: {
+    backgroundColor: "#f4f4f4",
+    textAlign: "center",
+    padding: "15px",
+    fontSize: "0.9rem",
+    color: "#666666",
+    borderTop: "1px solid #dddddd",
+  },
+  unsubscribeContainer: {
+    marginTop: "10px",
+  },
+  unsubscribeLink: {
+    color: "#007bff",
+    textDecoration: "none",
+    fontSize: "0.85rem",
+  },
+};

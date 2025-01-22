@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 255 255 255;
+    --foreground: 0 0 10%;
+    --card: 255 255 255;
+    --card-foreground: 0 0 10%;
+    --border: 0 0 90%;
+    --input: 0 0 90%;
+  }
+  .dark {
+    --background: 0 0 10%;
+    --foreground: 255 255 255;
+    --card: 0 0 10%;
+    --card-foreground: 255 255 255;
+    --border: 255 255 255;
+    --input: 255 255 255;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  * {
+    @apply border-border;
+  }
+}
